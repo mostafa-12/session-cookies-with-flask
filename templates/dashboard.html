@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="h3 mb-3">Users Dashboard</h1>
+<p class="muted mb-4">All users loaded from the data passed by the dashboard route.</p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+						{% if messages %}
+							{% for category, message in messages %}
+								<div class="alert alert-{{ category if category in ['success', 'warning', 'danger', 'info'] else 'secondary' }}" role="alert">
+									{{ message }}
+								</div>
+							{% endfor %}
+						{% endif %}
+{% endwith %}
+{% if data %}
+<div class="table-responsive">
+	<table class="table align-middle mb-0">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Username</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in data %}
+			<tr>
+				<td>{{ user.id }}</td>
+				<td>{{ user.username }}</td>
+				<td>{{ user.email }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% else %}
+<p class="muted mb-0">No users found.</p>
+{% endif %}
+{% endblock %}
