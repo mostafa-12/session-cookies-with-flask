@@ -94,8 +94,6 @@ What to notice in this project:
 - append_json
 - delete_json
 
-This is good for learning, but not for production apps.
-
 ## Learning path: how to learn sessions, cookies, and HTTP from this project
 
 1. Start with app.py route flow
@@ -147,7 +145,3 @@ This project is intentionally simple for learning. For production, improve the f
 3. Move session storage to Flask-Session.
 4. Add unit tests for login and protected routes.
 5. Add environment variables for secret keys.
-
-## License
-
-Add your preferred license here.
